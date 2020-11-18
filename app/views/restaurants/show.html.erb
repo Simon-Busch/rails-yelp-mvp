@@ -13,7 +13,12 @@
   </li>
 </ul>
 
-<%= link_to "Add a review", new_restaurant_review_path(@restaurant)%>
-
 <%= link_to 'Back', restaurants_path, class:"btn btn-primary" %>
 
+<div class="container">
+  <%= simple_form_for [ @restaurant, @review ] do |f|%>
+    <%=f.input :rating %>
+    <%=f.input :content %>
+    <%=f.submit class:"btn btn-primary"%>
+  <% end %>
+</div>
